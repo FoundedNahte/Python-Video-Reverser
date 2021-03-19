@@ -36,7 +36,7 @@ b: input2.mp4
 -cpu [] : change number of cores to be used (default = highest amount available)
 -i [] : Input Video Path
 -o [] : Output file Path
--side : compiles a final side-by-side video with reversed on the left and original on the right (reversed audio only)
+-side : compiles a final horizontally stacked (side-by-side) video with reversed on the left and original on the right (reversed audio only)
 ```
 
 **Examples:**
