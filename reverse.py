@@ -49,7 +49,21 @@ def inputs(i_bool, o_bool):
         _output = input()
         return i_bool, _output
     else:
-        inputs(1, 1)
+        fileList = os.listdir()
+        mp4_list = []
+        for f in fileList:
+            if(".mp4" in f):
+                mp4_list.append(f)
+        print("Press letter of mp4 file to invert")
+
+        for i in range(len(mp4_list)):
+            print(chr(97+i)+": "+mp4_list[i])
+
+        index = input()
+        _input = mp4_list[ord(index)-97]
+        print("Enter path for output mp4")
+        _output = input()
+        return _input, _output
 
 def reverseAudio(_input):
     p1 = subprocess.Popen(f"ffmpeg -i {_input} -vn -ar 44100 -ac 2 -ab 192k -f mp3 temp/temp_audio.mp3")
