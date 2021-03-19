@@ -53,10 +53,10 @@ python reverse.py -i input.mp4 -o output.mp4 -step 5 -cpu 4
 
 **Notes:**
 
-*Mores cores = more memory used in execution 
+- Mores cores = more memory used in execution 
 
-*Higher step = more memory used in execution
+- Higher step = more memory used in execution
 
-*You are able to pass in the input or output video path independently.
+- You are able to pass in the input or output video path in the command line independently.
 
 
