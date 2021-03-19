@@ -1,6 +1,6 @@
 # Python-Video-Reverser
 
-To reverse videos, one common solution is to simply use ffmpeg's "reverse" filter.
+To reverse videos, the most common solution is to simply use ffmpeg's "reverse" filter.
 
 However, since ffmpeg buffers the entire video into memory, a large video file can overload memory and crash the program.
 
