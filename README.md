@@ -22,7 +22,7 @@ pip install -r requirements.txt
 
 **1. Terminal Drop Down Menu:**
 ```
-python reverse.py
+> python reverse.py
 Enter mp4 file to reverse:
 a: input.mp4
 b: input2.mp4
