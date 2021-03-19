@@ -4,7 +4,7 @@ To reverse videos, the most common solution is to simply use ffmpeg's "reverse" 
 
 However, since ffmpeg buffers the entire video into memory, a large video file can overload memory and crash the program.
 
-This python program utilizes parallel processing and ffmpeg to splice the target video into chunks, reverse them, and compile it all back into a reversed video.
+This python wrapper utilizes parallel processing and ffmpeg to splice the target video into chunks, reverse them, and compile it all back into a reversed video.
 
 
 
