@@ -4,7 +4,7 @@ import argparse
 from moviepy.editor import VideoFileClip
 from multiprocessing import Pool
 import shutil
-import time
+from time import time
 # input file path, start, calculated time step
 
 ffmpeg_path = "ffmpeg/ffmpeg"
@@ -14,8 +14,8 @@ def reverseVideo(_input, step, duration, start):
     print(_input)
     print(str(step))
     print(str(start))
-    remain = duration % 10
-    if step % 10== 0:
+    remain = duration % step
+    if step % step == 0:
         position = (duration - remain) - start
     else:
         position = 0
@@ -66,13 +66,13 @@ def inputs(i_bool, o_bool):
         return _input, _output
 
 def reverseAudio(_input):
-    p1 = subprocess.Popen(f"ffmpeg -i {_input} -vn -ar 44100 -ac 2 -ab 192k -f mp3 temp/temp_audio.mp3")
+    p1 = subprocess.Popen(f"ffmpeg -i \"{_input}\" -vn -ar 44100 -ac 2 -ab 192k -f mp3 temp/temp_audio.mp3")
     p1.wait()
 
 
 if __name__ == "__main__": 
     
-    start_time = time.time()
+    start_time = time()
 
     if os.path.isdir("temp/"):
         shutil.rmtree("temp/")
@@ -82,17 +82,20 @@ if __name__ == "__main__":
     parser.add_argument("-i", action="store", dest="input", metavar = "input path", type = str, help = "path to input file", default=None)
     parser.add_argument("-o", action="store", dest="output", metavar = "output path", type = str, help = "path for output file", default=None)
     parser.add_argument("-cpu", action="store", dest="cpu_num", type = str, help="Number of CPU cores to use", default=str(os.cpu_count()))
-    parser.add_argument("-step", action="store", dest="_step", type = str, help="time interval of subclips; lower number = less memory used and larger execution time", default=str(10))
-
+    parser.add_argument("-step", action="store", dest="_step", type = str, help="time interval of subclips; lower number = less memory used and larger execution time", default=str(5))
+    parser.add_argument("-side", action="store_true", dest="_view", default=False)
     args = parser.parse_args()
     _input = args.input
     _output = args.output
+    _view = args._view
+     
+
     _processes = int(args.cpu_num)
     temp_videos = []
     
     if(_input == None or _output == None):
         _input, _output = inputs(_input, _output)
-
+     
     input_video = VideoFileClip(_input)
     step = int(args._step)
     _times = []
@@ -126,11 +129,18 @@ if __name__ == "__main__":
             parts.append(cases.get(key))
         for i in range(0, len(parts)):
             out_file.write("file "+"'"+parts[i]+"'"+"\n")
-    _p = subprocess.Popen(f"{ffmpeg_path} -f concat -i temp/temp.txt -c copy {_output} -y")
+    temp = "oijas8xcklajw2mmnx2.mp4"
+    if(_view):
+        _p = subprocess.Popen(f"{ffmpeg_path} -f concat -i temp/temp.txt -c copy {temp} -y")
+    else:
+        _p = subprocess.Popen(f"{ffmpeg_path} -f concat -i temp/temp.txt -c copy \"{_output}\" -y")
     _p.wait()
+    if(_view):
+        _p = subprocess.Popen(f"{ffmpeg_path} -i {temp} -i \"{_input}\" -filter_complex hstack \"{_output}\"")
     try:
         shutil.rmtree("temp/")
-        print(f"--- {time.time() - start_time()} seconds ---")
+        os.remove(temp)
+        print(f"--- {time() - start_time()} seconds ---")
     except Exception as e:
         pass
 

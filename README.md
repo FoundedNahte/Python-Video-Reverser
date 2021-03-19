@@ -32,10 +32,11 @@ b: input2.mp4
 
 **Optional Flags:**
 ```
--step [] : change time interval of subclips (default = 10 seconds)
+-step [] : change time interval of subclips (default = 5 seconds)
 -cpu [] : change number of cores to be used (default = highest amount available)
 -i [] : Input Video Path
 -o [] : Output file Path
+-side : compiles a final side-by-side video with reversed on the left and original on the right (reversed audio only)
 ```
 
 **Examples:**
