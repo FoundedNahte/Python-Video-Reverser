@@ -27,7 +27,7 @@ a: input.mp4
 b: input2.mp4
 >
 ```
-**2. Command Line Arguments**
+**2. Command Line Arguments:**
 
 **Optional Flags:**
 ```
@@ -58,5 +58,3 @@ python reverse.py -i input.mp4 -o output.mp4 -step 5 -cpu 4
 *You are able to pass in the input or output video path independently.
 
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
