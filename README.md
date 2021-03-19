@@ -18,10 +18,11 @@ pip install -r requirements.txt
 
 ## Usage
 
-**reverse.py has two ways of running (Both can utilize command line arguments):**
+**reverse.py has two ways of running (Both can utilize command line flags):**
 
 **1. Terminal Drop Down Menu:**
 ```
+python reverse.py
 Enter mp4 file to reverse:
 a: input.mp4
 b: input2.mp4
