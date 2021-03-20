@@ -137,6 +137,7 @@ if __name__ == "__main__":
     _p.wait()
     if(_view):
         _p = subprocess.Popen(f"{ffmpeg_path} -i {temp} -i \"{_input}\" -filter_complex hstack \"{_output}\"")
+    _p.wait()
     try:
         shutil.rmtree("temp/")
         os.remove(temp)
