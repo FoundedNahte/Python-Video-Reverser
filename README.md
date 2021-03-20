@@ -63,6 +63,6 @@ python reverse.py -i input.mp4 -o output.mp4 -step 5 -cpu 4
 
 ## What's Next?
 
-Fixing the choppiness of video and audio of resulting video by directly reading and writing the input video frames into subclips instead of relying on ffmpeg.
+I plan on fixing the choppiness of video and audio of resulting video by directly reading and writing the input video frames into subclips instead of relying on ffmpeg.
 
 
