@@ -61,4 +61,8 @@ python reverse.py -i input.mp4 -o output.mp4 -step 5 -cpu 4
 
 - You are able to pass in the input or output video path in the command line independently.
 
+## What's Next?
+
+Fixing the choppiness of video and audio of resulting video by directly reading and writing the frames to the subclips instead of relying on ffmpeg.
+
 
