@@ -4,7 +4,7 @@ To reverse videos, the most common solution is to simply use ffmpeg's "reverse" 
 
 However, since ffmpeg buffers the entire video into memory, a large video file can overload memory and crash the program.
 
-This python program utilizes parallel processing and ffmpeg to splice the target video into chunks, reverse them, and compile it all back into a reversed video.
+This python wrapper utilizes parallel processing and ffmpeg to splice the target video into chunks, reverse them, and compile it all back into a reversed video.
 
 
 
@@ -21,6 +21,8 @@ pip install -r requirements.txt
 **reverse.py has two ways of running (Both can utilize command line flags):**
 
 **1. Terminal Drop Down Menu:**
+
+reverse.py searchs for mp4 files in the same folder:
 ```
 > python reverse.py
 Enter mp4 file to reverse:
@@ -36,7 +38,7 @@ b: input2.mp4
 -cpu [] : change number of cores to be used (default = highest amount available)
 -i [] : Input Video Path
 -o [] : Output file Path
--side : compiles a final side-by-side video with reversed on the left and original on the right (reversed audio only)
+-side : compiles a final horizontally stacked (side-by-side) video with reversed on the left and original on the right (reversed audio only)
 ```
 
 **Examples:**
@@ -53,10 +55,10 @@ python reverse.py -i input.mp4 -o output.mp4 -step 5 -cpu 4
 
 **Notes:**
 
-*Mores cores = more memory used in execution 
+- Mores cores = more memory used in execution 
 
-*Higher step = more memory used in execution
+- Higher step = more memory used in execution
 
-*You are able to pass in the input or output video path independently.
+- You are able to pass in the input or output video path in the command line independently.
 
 
