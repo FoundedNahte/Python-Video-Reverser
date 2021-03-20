@@ -21,6 +21,8 @@ pip install -r requirements.txt
 **reverse.py has two ways of running (Both can utilize command line flags):**
 
 **1. Terminal Drop Down Menu:**
+
+**reverse.py searchs for mp4 files in the same folder:**
 ```
 > python reverse.py
 Enter mp4 file to reverse:
