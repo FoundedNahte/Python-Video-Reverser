@@ -59,7 +59,7 @@ python reverse.py -i input.mp4 -o output.mp4 -step 5 -cpu 4
 
 - Higher step = more memory used in execution
 
-- You are able to pass in the input or output video path in the command line independently.
+- You're not required to supply both input and output paths.
 
 ## What's Next?
 
